@@ -35,7 +35,7 @@ const ContentTable = ({ props }) => {
         {props.items.map((item, i) => {
           return (
             <li key={i}>
-              <a href={`#${item.refId}`}>{item.sectionName}</a>
+              <p>{item.sectionName}</p>
             </li>
           );
         })}

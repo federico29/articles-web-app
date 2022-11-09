@@ -1,24 +1,23 @@
-import { useState } from "react";
+import { useRef } from "react";
 import axios from "axios";
 
 const ArticleForm = () => {
-  const [title, setTitle] = useState("");
-  const [abstract, setAbstract] = useState("");
-  const [category, setCategory] = useState("");
-  const [file, setFile] = useState("");
+  const titleRef = useRef();
+  const abstractRef = useRef();
+  const categoryRef = useRef();
+  const fileRef = useRef();
 
-  const upload = () => {
-    let article = {
-      title: title,
-      abstract: abstract,
-      category: category,
-      file: file,
-    };
-
+  async function handleSubmit(e) {
+    e.preventDefault();
     axios
       .post(
         "https://s3aq4jk9m4.execute-api.us-east-1.amazonaws.com/v1/article",
-        article
+        {
+          title: titleRef.current.value,
+          abstract: abstractRef.current.value,
+          category: categoryRef.current.value,
+          file: fileRef.current.value,
+        }
       )
       .then((res) => {
         console.log(res);
@@ -26,62 +25,26 @@ const ArticleForm = () => {
       .catch((err) => {
         console.log(err);
       });
-  };
-
-  const toBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        resolve(reader.result);
-      };
-      reader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
-  const handleFileInputChange = async (e) => {
-    const base64 = await toBase64(e.target.files[0]);
-    setFile(base64.split(",").at(-1));
-  };
+  }
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <div>
-        <input
-          type="file"
-          placeholder="File"
-          onChange={handleFileInputChange}
-        />
+        <input type="file" placeholder="File" ref={fileRef} />
       </div>
       <div>
-        <input
-          type="text"
-          placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)}
-        />
+        <input type="text" placeholder="Title" ref={titleRef} />
       </div>
       <div>
-        <input
-          type="text"
-          placeholder="Category"
-          onChange={(e) => setCategory(e.target.value)}
-        />
+        <input type="text" placeholder="Category" ref={categoryRef} />
       </div>
       <div>
-        <input
-          type="text"
-          placeholder="Abstract"
-          onChange={(e) => setAbstract(e.target.value)}
-        />
+        <input type="text" placeholder="Abstract" ref={abstractRef} />
       </div>
       <div>
-        <button type="button" onClick={upload}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </div>
-    </div>
+    </form>
   );
 };
 
