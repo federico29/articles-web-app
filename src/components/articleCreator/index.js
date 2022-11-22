@@ -1,20 +1,15 @@
 import { useState } from "react";
-import { Container } from "@mui/material";
+import ArticleForm from "./components/ArticleForm";
 import ArticleViewer from "./components/ArticleViewer";
-import CodeBlockForm from "./components/CodeBlockForm";
-import ContentsTableForm from "./components/ContentsTableForm";
 
-function ArticleForm() {
+function ArticleCreator() {
   const [components, setComponents] = useState([]);
   return (
-    <>
-      <Container>
-        <CodeBlockForm setComponents={setComponents} />
-        <ContentsTableForm setComponents={setComponents} />
-      </Container>
+    <div className="split-screen">
+      <ArticleForm setComponents={setComponents} />
       <ArticleViewer components={components} />
-    </>
+    </div>
   );
 }
 
-export default ArticleForm;
+export default ArticleCreator;

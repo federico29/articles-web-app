@@ -1,9 +1,9 @@
-import ArticleForm from "../../components/articleCreator/index";
+import ArticleCreator from "../../components/articleCreator/index";
 
 function CreateArticle() {
   return (
     <div>
-      <ArticleForm />
+      <ArticleCreator />
     </div>
   );
 }

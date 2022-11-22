@@ -5,11 +5,10 @@ import {
   Section,
   CodeBlock,
 } from "../../article";
-import { Container } from "@mui/material";
 
 function ArticleViewer({ components }) {
   return (
-    <Container>
+    <div className="article-viewer">
       {components.map((component, i) => {
         if (component.className === "big-header") {
           return <BigHeader props={component.props} key={i} />;
@@ -28,7 +27,7 @@ function ArticleViewer({ components }) {
         }
         return null;
       })}
-    </Container>
+    </div>
   );
 }
 

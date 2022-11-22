@@ -41,3 +41,24 @@ body {
     text-align: justify;
     background-color: aqua;
 }
+
+/* Article form */
+.split-screen {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.article-form {
+    left: 0;
+    background-color: green;
+}
+
+.component-form-header button {
+    float: right;
+}
+
+/* Article viewer */
+.article-viewer {
+    right: 0;
+    background-color: rgb(210, 210, 210);
+}

@@ -1,6 +1,8 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
+import ComponentFormHeader from "./ComponentFormHeader";
 
 function CodeBlockForm({ setComponents }) {
+  const [isVisible, setIsVisible] = useState(false);
   const languageRef = useRef();
   const codeRef = useRef();
 
@@ -18,16 +20,24 @@ function CodeBlockForm({ setComponents }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Code block</h2>
-      <div>
-        <input placeholder="Language" ref={languageRef} />
-      </div>
-      <div>
-        <textarea placeholder="Code" ref={codeRef} rows="4" cols="50" />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <ComponentFormHeader formTitle="Code Block" setIsVisible={setIsVisible} />
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: isVisible ? "block" : "none",
+          backgroundColor: "green",
+        }}
+      >
+        <div>
+          <input placeholder="Language" ref={languageRef} />
+        </div>
+        <div>
+          <textarea placeholder="Code" ref={codeRef} rows="4" cols="50" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 }
 

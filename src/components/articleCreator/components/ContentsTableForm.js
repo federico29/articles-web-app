@@ -1,6 +1,8 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
+import ComponentFormHeader from "./ComponentFormHeader";
 
 function ContentsTableForm({ setComponents }) {
+  const [isVisible, setIsVisible] = useState(false);
   const headerRef = useRef();
   const itemRef = useRef();
   const items = [];
@@ -24,15 +26,23 @@ function ContentsTableForm({ setComponents }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Contents Table</h2>
-      <input placeholder="Header" ref={headerRef}></input>
-      <div>
-        <input placeholder="Item" ref={itemRef}></input>
-        <button onClick={handleAddItem}>Add Item</button>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <ComponentFormHeader
+        formTitle="Contents Table"
+        setIsVisible={setIsVisible}
+      />
+      <form
+        onSubmit={handleSubmit}
+        style={{ display: isVisible ? "" : "none", backgroundColor: "green" }}
+      >
+        <input placeholder="Header" ref={headerRef}></input>
+        <div>
+          <input placeholder="Item" ref={itemRef}></input>
+          <button onClick={handleAddItem}>Add Item</button>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 }
 
