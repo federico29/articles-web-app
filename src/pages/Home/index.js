@@ -1,12 +1,12 @@
 import { Container } from "@mui/material";
-import ArticlesGrid from "../../components/articlesGrid/ArticlesGrid";
+import FetchArticles from "../../features/fetchArticles";
 
 const Home = () => {
   return (
     <Container>
       <h1>Any Article</h1>
       <br />
-      <ArticlesGrid />
+      <FetchArticles />
     </Container>
   );
 };

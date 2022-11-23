@@ -1,10 +1,10 @@
-const ArticleCard = ({ article }) => {
+function Card({ article }) {
   return (
     <div className="card">
       <div className="card-header">
         <span className="tag">{article.category}</span>
         <h4>
-          <a href={`/article?id=${article.id}`}>{article.title}</a>
+          <a href={`/article/${article.id}`}>{article.title}</a>
         </h4>
       </div>
       <div className="card-body">
@@ -15,6 +15,6 @@ const ArticleCard = ({ article }) => {
       </div>
     </div>
   );
-};
+}
 
-export default ArticleCard;
+export default Card;

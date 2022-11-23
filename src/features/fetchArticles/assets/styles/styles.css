@@ -1,0 +1,30 @@
+.card {
+    flex-direction: column;
+    background-color: #ddd;
+    min-height: 100%;
+}
+
+.card-header h4 {
+    font-size: 1.5rem;
+}
+
+.tag {
+    background: #bbb;
+    width: fit-content;
+}
+
+@media only screen and (max-width: 749px) and (min-width: 600px) {
+    .card-body {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1249px) and (min-width: 900px) {
+    .card-body {
+        display: none;
+    }
+}
+
+.card-footer {
+    flex-direction: column;
+}
