@@ -19,9 +19,15 @@ function ViewArticle() {
 
   if (isLoading) {
     return (
-      <Container>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <CircularProgress />
-      </Container>
+      </div>
     );
   }
 

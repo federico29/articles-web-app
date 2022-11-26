@@ -1,15 +1,8 @@
+import "../assets/styles/styles.css";
 import ReactMarkdown from "react-markdown";
 
 function ArticleViewer({ article }) {
-  return (
-    <div>
-      <div>
-        <h3>{article.title}</h3>
-        <p>{article.category}</p>
-      </div>
-      <ReactMarkdown children={article.markdown} />
-    </div>
-  );
+  return <ReactMarkdown children={article.markdown} className="article-body" />;
 }
 
 export default ArticleViewer;

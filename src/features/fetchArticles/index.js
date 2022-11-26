@@ -14,17 +14,13 @@ function FetchArticles() {
 
   if (isLoading) {
     return (
-      <Container>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <CircularProgress />
-      </Container>
+      </div>
     );
   }
 
-  return (
-    <Container>
-      <ArticlesGrid articles={articles} />
-    </Container>
-  );
+  return <ArticlesGrid articles={articles} />;
 }
 
 export default FetchArticles;

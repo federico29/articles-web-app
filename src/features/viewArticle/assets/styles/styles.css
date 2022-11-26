@@ -1,0 +1,35 @@
+::marker {
+    color: red;
+}
+
+.article-body {
+    color: black;
+}
+
+.article-body * {
+    margin-top: 1rem;
+}
+
+.article-body code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #ebebebf1;
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+    height: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ebebebf1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(171, 171, 171, 0.797);
+    border-radius: 10px;
+}
