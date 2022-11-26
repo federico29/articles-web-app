@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, CircularProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 import "./assets/styles/styles.css";
 import getRandomArticles from "./services/getRandomArticles";
 import ArticlesGrid from "./components/grid";
